@@ -550,6 +550,7 @@
             ) {
                 webViewStatus.classList.remove('status_need');
                 DemoApp.apiRequest('validate', {}, function (result) {
+                    alert(result);
                     if (result.status === 200) {
                         webViewStatus.textContent = 'Hash is correct (async)';
                         webViewStatus.className   = 'ok';
