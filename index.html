@@ -717,11 +717,11 @@
             // return onCallback && onCallback({error: 'This function (' + method + ') should send requests to your backend. Please, change this code to your own.'});
 
             const authData = DemoApp.initData || '';
-            fetch('https://77.222.24.22/api', {
+            fetch(`https://77.222.24.22/api/${method}`, {
                 method     : 'POST',
                 body       : JSON.stringify(Object.assign(data, {
                     _auth : authData,
-                    method: method,
+                    // method: method,
                 })),
                 credentials: 'include',
                 headers    : {
