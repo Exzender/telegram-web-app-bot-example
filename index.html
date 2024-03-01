@@ -549,8 +549,8 @@
                 webViewStatus.classList.contains('status_need')
             ) {
                 webViewStatus.classList.remove('status_need');
-                DemoApp.apiRequest('validate', {initData: DemoApp.initData}, function (result) {
-                    if (result.ok) {
+                DemoApp.apiRequest('validate', {}, function (result) {
+                    if (result.status === 200) {
                         webViewStatus.textContent = 'Hash is correct (async)';
                         webViewStatus.className   = 'ok';
                     } else {
