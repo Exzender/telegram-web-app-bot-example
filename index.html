@@ -469,6 +469,12 @@
                 return;
             }
 
+            DemoApp.apiRequest('getreflink', {}, function (result) {
+                Telegram.WebApp.showAlert(JSON.stringify(result));
+            })
+
+            return;
+
             document.querySelectorAll('button').forEach((btn) => btn.disabled = true);
 
             const btn       = document.querySelector('#btn_status');
@@ -551,7 +557,6 @@
                 webViewStatus.classList.remove('status_need');
                 DemoApp.apiRequest('validate', {}, function (result) {
                     // alert(result);
-                    Telegram.WebApp.showAlert(JSON.stringify(result));
                     if (result.valid) {
                         webViewStatus.textContent = 'Hash is correct (async)';
                         webViewStatus.className   = 'ok';
