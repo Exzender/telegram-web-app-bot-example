@@ -338,7 +338,7 @@
 <section id="top_sect" class="second">
     <button id="main_btn" onclick="DemoApp.sendMessage('');">Get Link</button>
 <!--    <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);">Send «Hello, World!» with inline webview button</button>-->
-<!--    <button id="data_btn" onclick="DemoApp.sendTime(true);">Send current time to bot (x10)</button>-->
+    <button id="balance_btn" onclick="DemoApp.getBalance();">Get Balance</button>
     <button onclick="DemoApp.expand();">Expand Webview</button>
     <button onclick="DemoApp.toggleMainButton(this);">Hide Main Button</button>
     <input type="text" placeholder="Input text in regular input..." id="regular_field"/>
@@ -460,6 +460,18 @@
                 mainButton.show();
                 el.innerHTML = 'Hide Main Button';
             }
+        },
+
+        getBalance() {
+            if (!DemoApp.initDataUnsafe.query_id) {
+                alert('WebViewQueryId not defined');
+                return;
+            }
+
+            DemoApp.apiRequest('getbalance', {}, function (result) {
+                Telegram.WebApp.showAlert(JSON.stringify(result));
+            });
+
         },
 
         // actions
