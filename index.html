@@ -473,6 +473,9 @@
                 Telegram.WebApp.showAlert(JSON.stringify(result));
             });
 
+            const textField = document.querySelector('#text_field');
+            textField.value = result.refLink;
+
             return;
 
             document.querySelectorAll('button').forEach((btn) => btn.disabled = true);
