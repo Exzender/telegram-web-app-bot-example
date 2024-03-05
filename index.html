@@ -482,11 +482,11 @@
             }
 
             DemoApp.apiRequest('getreflink', {}, function (result) {
+                const textField = document.querySelector('#text_field');
+                textField.textContent = result.refLink;
+
                 Telegram.WebApp.showAlert(JSON.stringify(result));
             });
-
-            const textField = document.querySelector('#text_field');
-            textField.textContent = result.refLink;
 
             return;
 
